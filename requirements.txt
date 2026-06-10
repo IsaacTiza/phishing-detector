@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+scikit-learn
+pandas
+numpy
+requests
+beautifulsoup4
+python-whois
+dnspython
+joblib
+liac-arff
+scipy
+pillow

@@ -23,9 +23,8 @@ notebooks/.ipynb_checkpoints/
 model/phishing_detector.pkl
 model/feature_names.pkl
 
-# Dataset
+# Dataset (keep zip and docx, include arff for deployment)
 dataset/*.zip
-dataset/*.arff
 dataset/*.docx
 
 # OS
