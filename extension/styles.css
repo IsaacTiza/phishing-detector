@@ -1,0 +1,215 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 320px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #0f1117;
+  color: #e0e0e0;
+}
+
+.container {
+  padding: 16px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.logo {
+  font-size: 28px;
+}
+
+.title h1 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.title p {
+  font-size: 10px;
+  color: #888;
+}
+
+/* URL Box */
+.url-box {
+  background: #1a1d27;
+  border: 1px solid #2a2d3a;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 11px;
+  color: #aaa;
+  word-break: break-all;
+  margin-bottom: 12px;
+  max-height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Result Box */
+.result-box {
+  background: #1a1d27;
+  border: 1px solid #2a2d3a;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 12px;
+  min-height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Scanning state */
+.scanning {
+  text-align: center;
+  color: #888;
+}
+
+.scanning p {
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.spinner {
+  width: 30px;
+  height: 30px;
+  border: 3px solid #2a2d3a;
+  border-top: 3px solid #4a9eff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Verdict state */
+.verdict {
+  width: 100%;
+  text-align: center;
+}
+
+.verdict-icon {
+  font-size: 36px;
+  margin-bottom: 6px;
+}
+
+.verdict-text {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.verdict-text.legitimate {
+  color: #4caf50;
+}
+
+.verdict-text.phishing {
+  color: #f44336;
+}
+
+.confidence {
+  font-size: 11px;
+  color: #888;
+  margin-bottom: 14px;
+}
+
+/* Probability bars */
+.probability-bars {
+  width: 100%;
+}
+
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-size: 11px;
+  color: #aaa;
+}
+
+.bar-row span:first-child {
+  width: 65px;
+  text-align: right;
+}
+
+.bar-row span:last-child {
+  width: 30px;
+  text-align: left;
+}
+
+.bar-track {
+  flex: 1;
+  background: #2a2d3a;
+  border-radius: 4px;
+  height: 8px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.6s ease;
+}
+
+.bar-fill.green {
+  background: #4caf50;
+}
+
+.bar-fill.red {
+  background: #f44336;
+}
+
+/* Error state */
+.error-state {
+  text-align: center;
+  color: #f44336;
+}
+
+.error-icon {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.error-state p {
+  font-size: 12px;
+  color: #aaa;
+}
+
+/* Rescan button */
+.rescan-btn {
+  width: 100%;
+  padding: 9px;
+  background: #1e3a5f;
+  color: #4a9eff;
+  border: 1px solid #2a5a8f;
+  border-radius: 8px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-bottom: 10px;
+}
+
+.rescan-btn:hover {
+  background: #254a7a;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  font-size: 10px;
+  color: #555;
+}
+
+#backend-status {
+  color: #4caf50;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Phishing Detector</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="logo">🛡️</div>
+      <div class="title">
+        <h1>Phishing Detector</h1>
+        <p>Powered by Random Forest AI</p>
+      </div>
+    </div>
+
+    <!-- Current URL display -->
+    <div class="url-box">
+      <span id="current-url">Loading...</span>
+    </div>
+
+    <!-- Result area -->
+    <div class="result-box" id="result-box">
+      <div class="scanning" id="scanning-state">
+        <div class="spinner"></div>
+        <p>Analyzing website...</p>
+      </div>
+
+      <div class="verdict" id="verdict-state" style="display:none;">
+        <div class="verdict-icon" id="verdict-icon"></div>
+        <div class="verdict-text" id="verdict-text"></div>
+        <div class="confidence" id="confidence-text"></div>
+
+        <div class="probability-bars">
+          <div class="bar-row">
+            <span>Legitimate</span>
+            <div class="bar-track">
+              <div class="bar-fill green" id="legit-bar"></div>
+            </div>
+            <span id="legit-pct">0%</span>
+          </div>
+          <div class="bar-row">
+            <span>Phishing</span>
+            <div class="bar-track">
+              <div class="bar-fill red" id="phish-bar"></div>
+            </div>
+            <span id="phish-pct">0%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="error-state" id="error-state" style="display:none;">
+        <div class="error-icon">⚠️</div>
+        <p id="error-message">Could not analyze this page.</p>
+      </div>
+    </div>
+
+    <!-- Rescan button -->
+    <button class="rescan-btn" id="rescan-btn">🔄 Rescan</button>
+
+    <!-- Footer -->
+    <div class="footer">
+      <span>Backend: <span id="backend-status">●</span> Connected</span>
+    </div>
+
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
