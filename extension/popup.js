@@ -1,4 +1,4 @@
-const API_URL = "http://127.0.0.1:8000/check-url";
+const API_URL = "https://phishing-detector-npfz.onrender.com/check-url";
 
 // DOM elements
 const currentUrlEl = document.getElementById("current-url");
@@ -62,35 +62,35 @@ async function scanURL(url) {
   showScanning();
   currentUrlEl.textContent = url;
 
-try {
-  // Hard timeout of 30 seconds
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 30000);
+  try {
+    // Hard timeout of 30 seconds
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 30000);
 
-  const response = await fetch(API_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ url: url }),
-    signal: controller.signal,
-  });
+    const response = await fetch(API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ url: url }),
+      signal: controller.signal,
+    });
 
-  clearTimeout(timeout);
+    clearTimeout(timeout);
 
-  if (!response.ok) {
-    throw new Error(`Server error: ${response.status}`);
+    if (!response.ok) {
+      throw new Error(`Server error: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    if (data.verdict === "ERROR") {
+      showError("Analysis failed. Check backend.");
+    } else {
+      showVerdict(data);
+    }
+  } catch (err) {
+    showError("Cannot reach backend. Is the server running?");
+    document.getElementById("backend-status").style.color = "#f44336";
   }
-
-  const data = await response.json();
-
-  if (data.verdict === "ERROR") {
-    showError("Analysis failed. Check backend.");
-  } else {
-    showVerdict(data);
-  }
-} catch (err) {
-  showError("Cannot reach backend. Is the server running?");
-  document.getElementById("backend-status").style.color = "#f44336";
-}
 }
 
 // Get current tab URL and scan it
